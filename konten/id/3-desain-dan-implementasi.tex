@@ -14,7 +14,7 @@
 \subsection{Dataset Citra}
 \label{subsec:datasetcitra}
 
-Dataset yang akan digunakan adalah kumpulan citra berukuran 640 pixel x 480 pixel. Data citra didapatkan dengan bantuan \emph{library} OpenCV untuk mengambil video dengan yang kemudian diekstrak menjadi 30 \emph{frame} untuk setiap data. Adapun digunakan 6 kosakata isyarat BISINDO dengan konteks kosakata umum dan 3 isyarat kontrol untuk memudahkan penggunaan sistem. 
+Dataset yang akan digunakan adalah kumpulan citra berukuran 640 pixel x 480 pixel. Data citra didapatkan dengan bantuan \emph{library} OpenCV untuk mengambil video dengan yang kemudian diekstrak menjadi 30 \emph{frame} untuk setiap data. Adapun digunakan 6 kosakata isyarat BISINDO dengan konteks kosakata umum dan 3 isyarat kontrol untuk memudahkan penggunaan sistem. Secara berurutan, kosakata kontrol "standby" (menandakan transisi kosakata), "\emph{delete}" (menghapus kosakata), dan "\emph{translate}" (konversi ke suara).
 
 \begin{table}[H]
   \caption{Kosakata BISINDO dan Kontrol}
@@ -81,7 +81,7 @@ Sistem kontrol adalah serangkaian proses yang akan mengatur bagaimana nantinya b
 \begin{figure}[H]
   \centering
 
-  \includegraphics[scale=0.3]{gambar/bab3-flowchart-deteksi.png}
+  \includegraphics[scale=0.35]{gambar/bab3-flowchart-deteksi.png}
 
   \caption{Flowchart program deteksi bahasa isyarat}
   \label{fig:flowchartdeteksi}
@@ -90,7 +90,7 @@ Sistem kontrol adalah serangkaian proses yang akan mengatur bagaimana nantinya b
 \begin{figure}[H]
   \centering
 
-  \includegraphics[scale=0.3]{gambar/bab3-flowchart-kalimat.png}
+  \includegraphics[scale=0.35]{gambar/bab3-flowchart-kalimat.png}
 
   \caption{Flowchart Program pembentukan kalimat}
   \label{fig:flowchartkalimat}
@@ -100,8 +100,7 @@ Sistem kontrol adalah serangkaian proses yang akan mengatur bagaimana nantinya b
 \subsection{Integrasi \emph{Next Unit Computing} (NUC)}
 \label{subsec:integrasiNUC}
 
-Integrasi dengan Intel NUC dilakukan dengan mengakses website yang dibuat menggunakan \emph{framework} Streamlit penerjemah yang telah terhubung dengan server komputer menggunakan skema \emph{port forwarding}. Website akan mengakses webcam pengguna sehingga pengguna dapat melakukan gerakan isyarat yang kemudian diklasifikasikan dengan model LSTM yang telah dilatih sebelumnya secara \emph{realtime}.
-
+Integrasi dengan Intel NUC dilakukan dengan mengakses website yang dibuat menggunakan \emph{framework} Streamlit penerjemah yang telah terhubung dengan server komputer menggunakan skema \emph{port forwarding}. Website akan mengakses webcam pengguna sehingga pengguna dapat melakukan gerakan isyarat yang kemudian diklasifikasikan dengan model LSTM yang telah dilatih sebelumnya secara \emph{realtime}. 
 % Pada cetak biru yang tertera pada Gambar \ref{fig:cetakbiru}. \lipsum[8]
 
 % % Contoh input gambar pada kolom.
