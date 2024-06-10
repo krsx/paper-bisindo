@@ -74,7 +74,7 @@ Model dilatih dengan \emph{epoch} sebanyak 12 dengan partisi dataset sebesar 70:
     \centering
     \begin{tabular}{lllll}
       \hline
-      \textbf{Model} & \textbf{\emph{Avg. Accuracy}} & \textbf{\emph{Avg. Precision}} & \textbf{\emph{Avg. Recall}} & \textbf{\emph{Avg. F1-Score}} \\
+      \textbf{Model} & \textbf{\emph{Accuracy}} & \textbf{\emph{Precision}} & \textbf{\emph{Recall}} & \textbf{\emph{F1-Score}} \\
       \hline
       Model 1 & 0.85 & 0.85 & 0.85 & 0.83 \\
       Model 2 & 0.93 & 0.95 & 0.94 & 0.94 \\
@@ -83,7 +83,7 @@ Model dilatih dengan \emph{epoch} sebanyak 12 dengan partisi dataset sebesar 70:
     \end{tabular}
   \end{table}
   
-Berdasarkan tabel \ref{tb:evaluasiModel} dapat dilihat bahwa adanya relasi antara peningkatan kompleksitas dari model LSTM mempengaruhi performa klasifikasi gerakan bahasa isyarat. Hal ini dapat dilihat bahwa pada model ketiga menghasilkan performa terbaik dengan penggunaan \emph{layer} TimeDistributed dan 2 \emph{layer} LSTM.
+Berdasarkan tabel \ref{tb:evaluasiModel} dapat dilihat bahwa adanya relasi antara peningkatan kompleksitas dari model LSTM mempengaruhi performa klasifikasi gerakan bahasa isyarat. Hal ini dapat dilihat bahwa pada model ketiga menghasilkan rata - rata performa terbaik dengan penggunaan \emph{layer} TimeDistributed dan 2 \emph{layer} LSTM.
 
 \subsection{Pengujian Kondisi Cahaya}
 \label{sec:analisiscahaya}
@@ -94,18 +94,18 @@ Pengujian ini akan dilihat bagaimana kemampuan adaptasi model terhadap perubahan
   \caption{Hasil Evaluasi Tingkat Cahaya}
   \label{tb:evaluasiCahaya}
   \centering
-  \begin{tabular}{llll}
+  \begin{tabular}{lllll}
     \hline
-    \textbf{Cahaya} & \textbf{Akurasi} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+    \textbf{Cahaya} & \textbf{Akurasi} & \emph{\textbf{Processing Time}} & \emph{\textbf{Complete Time}} & \textbf{FPS} \\
     \hline
-    35 lux & 0.89 & 0.0938 & 3.0335 \\
-    80 lux & 1.00 & 0.0918 & 2.9928 \\
-    125 lux & 0.96 & 0.0923 & 2.4777 \\
+    35 lux & 0.89 & 0.0938 & 3.0335   & 9.968\\
+    80 lux & 1.00 & 0.0918 & 2.9928   & 10.115\\
+    125 lux & 0.96 & 0.0923 & 2.4777  & 12.905\\
     \hline
   \end{tabular}
 \end{table}
 
-Berdasarkan tabel \ref{tb:evaluasiCahaya} dapat dilihat bahwa adanya penurunan intensitas cahaya pada suatu ruangan menyebabkan adanya peningkatan pada \emph{processing time} dan \emph{complete time}. Namun apabila dilihat pada aspek akurasi, dapat dilihat bahwa intensitas cahaya 125 lux memiliki akurasi terbaik jika dibandingkan dengan intensitas cahaya lainnya. Hal ini disebabkan oleh peningkatan intensitas cahaya menyebabkan kamera dapat menangkap gerakan isyarat dengan lebih jelas.
+Berdasarkan tabel \ref{tb:evaluasiCahaya} dapat dilihat bahwa adanya penurunan intensitas cahaya pada suatu ruangan menyebabkan adanya peningkatan pada \emph{processing time} dan \emph{complete time}. Namun apabila dilihat pada aspek akurasi, dapat dilihat bahwa intensitas cahaya 125 lux memiliki akurasi terbaik jika dibandingkan dengan intensitas cahaya lainnya. Adapun rata - rata FPS, \emph{processing time}, dan \emph{complete time} menunjukkan bahwa sistem penerjemah memiliki performa terbaik pada intensitas cahaya 125 lux.  Hal ini disebabkan oleh peningkatan intensitas cahaya menyebabkan kamera dapat menangkap gerakan isyarat dengan lebih jelas.
 
 
 \subsection{Pengujian Kondisi Jarak}
@@ -117,18 +117,18 @@ Pengujian ini akan dilihat bagaimana kemampuan adaptasi model terhadap perubahan
   \caption{Hasil Evaluasi Jarak}
   \label{tb:evaluasiJarak}
   \centering
-  \begin{tabular}{llll}
+  \begin{tabular}{lllll}
     \hline
-    \textbf{Jarak} & \textbf{Akurasi} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+    \textbf{Jarak} & \textbf{Akurasi} & \emph{\textbf{Processing Time}} & \emph{\textbf{Complete Time}} & \textbf{FPS}\\
     \hline
-    180 cm & 0.89 & 0.1017 & 2.3660 \\
-    240 cm & 0.96 & 0.0994 & 2.5098 \\
-    300 cm & 1.00 & 0.0997 & 2.7918 \\
+    180 cm & 0.89 & 0.1017 & 2.3660 & 14.083\\
+    240 cm & 0.96 & 0.0994 & 2.5098 & 12.866\\
+    300 cm & 1.00 & 0.0997 & 2.7918 & 10.746\\
     \hline
   \end{tabular}
 \end{table}
 
-Berdasarkan tabel \ref{tb:evaluasiJarak} dapat dilihat bahwa peningkatan jarak menghasilkan klasifikassi model dengan akurasi yang lebih baik. Hal ini disebabkan oleh kemudahan kamera menangkap dengan jelas gerakan isyarat yang dilakukan oleh pengguna seiring dengan peningkatan jarak. Namun, peningkatan jarak mengakibatkan peningkatan pada \emph{complete time}. Pada \emph{processing time} cenderung bernilai fluktuatif.
+Berdasarkan tabel \ref{tb:evaluasiJarak} dapat dilihat bahwa peningkatan jarak menghasilkan klasifikassi model dengan akurasi yang lebih baik. Hal ini disebabkan oleh kemudahan kamera menangkap dengan jelas gerakan isyarat yang dilakukan oleh pengguna seiring dengan peningkatan jarak. Namun, peningkatan jarak mengakibatkan peningkatan pada \emph{complete time}. Pada \emph{processing time} cenderung bernilai fluktuatif. Adapun nilai FPS cenderung menurun yang menunjukkan bahwa beban kerja sistem semakin berat seiring dengan peningkatan jarak.
 
 \subsection{Pengujian Subjek Berbeda}
 \label{sec:analisissubjek}
@@ -154,17 +154,17 @@ Pengujian ini dilakukan untuk melihat kemampuan adaptasi model terhadap perubaha
   \caption{Hasil Evaluasi Subjek Berbeda}
   \label{tb:evaluasiSubjek}
   \centering
-  \begin{tabular}{llll}
+  \begin{tabular}{lllll}
     \hline
-    \textbf{Subjek} & \textbf{Accuracy} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+    \textbf{Subjek} & \textbf{Accuracy} & \emph{\textbf{Processing Time}} & \emph{\textbf{Complete Time}} & \textbf{FPS}\\
     \hline
-    Perempuan & 0.93 & 0.0988 & 2.6636 \\
-    Laki - Laki & 0.93 & 0.0973 & 2.8191 \\
+    Perempuan & 0.93 & 0.0988 & 2.6636   & 12.026\\
+    Laki - Laki & 0.93 & 0.0973 & 2.8191 & 11.378\\
     \hline
   \end{tabular}
 \end{table}
 
-Berdasarkan tabel \ref{tb:evaluasiSubjek} dapat dilihat bahwa model dapat melakukan klasifikasi pada subjek yang berbeda. Normalisasi data telah menghasilkan model yang \emph{scale invariant} dan \emph{position invariant}. Adapun akurasi klasifikasi model menunjukkan nilai yang sangat baik, yaitu bernilai 0.93 atau 93\%. \emph{Average processing time} dan \emph{complete time} juga menunjukkan nilai yang tidak jauh dengan pengujian yang dilakukan oleh penulis sebelumnya, yaitu untuk \emph{average processing time} berkisar pada 0.098 dan untuk \emph{complete time} berkisar pada 2.74. 
+Berdasarkan tabel \ref{tb:evaluasiSubjek} dapat dilihat bahwa model dapat melakukan klasifikasi pada subjek yang berbeda. Normalisasi data telah menghasilkan model yang \emph{scale invariant} dan \emph{position invariant}. Adapun akurasi klasifikasi model menunjukkan nilai yang sangat baik, yaitu bernilai 0.93 atau 93\%. \emph{Average processing time} dan \emph{complete time} juga menunjukkan nilai yang tidak jauh dengan pengujian yang dilakukan oleh penulis sebelumnya, yaitu untuk \emph{average processing time} berkisar pada 0.098 dan untuk \emph{complete time} berkisar pada 2.74. Adapun nilai rata - rata FPS yang didapatkan adalah 11.702. Hal ini menunjukkan bahwa sistem memiliki performa yang baik dalam melakukan klasifikasi gerakan isyarat pada subjek yang berbeda.
 
 \subsection{Pengujian Pembentukan Kalimat dan Konversi Suara}
 \label{sec:analisiskalimat}
@@ -195,19 +195,19 @@ Pengujian ini dilakukan untuk memahami bagaimana sistem penerjemah digunakan unt
   \caption{Hasil Evaluasi Kombinasi Kosakata}
   \label{tb:evaluasiKombinasi}
   \centering
-  \begin{tabular}{llll}
+  \begin{tabular}{lllll}
     \hline
-    \textbf{Kombinasi} & \textbf{Akurasi} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+    \textbf{Kombinasi} & \textbf{Akurasi} & \emph{\textbf{Processing Time}} & \emph{\textbf{Complete Time}} &\textbf{FPS}\\
     \hline
-    2 kosakata & 1.00 & 0.0993 & 2.8303 \\
-    3 kosakata & 0.93 & 0.0981 & 2.0513 \\
+    2 kosakata & 1.00 & 0.0993 & 2.8303 & 13.2573\\
+    3 kosakata & 0.93 & 0.0981 & 2.0513 & 10.1184\\
     \hline
   \end{tabular}
 \end{table}
 
-Dapat dilihat pada tabel \ref{tb:evaluasiKombinasi} bahwa model telah berhasil membentuk kalimat dengan melakukan kombinasi secara sekuensial dan berkelanjutan. Hal ini ditunjukkan dengan akurasi pada kalimat yang dibentuk dari kombinasi 2 kosakata bernilai 1.00 dan kombinasi 3 kosakata bernilai 0.93. Untuk nilai \emph{average processing time} dan nilai \emph{average complete time} tidak mengalami perubahan yang signifikan dengan pengujian yang berjalan secara berkelanjutan. Adapun dalam pembentukan kalimat "Ini rumah saya", terdapat kesalahan dalam klasifikasi gerakan isyarat "rumah" yang diklasifikasikan sebagai "delete". Hal ini disebabkan oleh tingkat kemiripan yang cukup tinggi antara gerakan isyarat "rumah" dan "delete". Secara keseluruhan, tingkat keberhasilan sistem dalam membentuk kalimat adalah 0.857 atau 85.7\%. Penggunaan library gTTS (Google Text-To-Speech) telah dapat mengkonversi kalimat yang dibentuk dengan baik. Hal ini juga ditunjukkan dengan klasifikasi gerakan isyarat "translate" yang berhasil pada setiap pengujian yang dilakukan.
+Dapat dilihat pada tabel \ref{tb:evaluasiKombinasi} bahwa model telah berhasil membentuk kalimat dengan melakukan kombinasi secara sekuensial dan berkelanjutan. Hal ini ditunjukkan dengan akurasi pada kalimat yang dibentuk dari kombinasi 2 kosakata bernilai 1.00 dan kombinasi 3 kosakata bernilai 0.93. Untuk nilai \emph{average processing time} dan nilai \emph{average complete time} tidak mengalami perubahan yang signifikan dengan pengujian yang berjalan secara berkelanjutan. Adapun dalam pembentukan kalimat "Ini rumah saya", terdapat kesalahan dalam klasifikasi gerakan isyarat "rumah" yang diklasifikasikan sebagai "delete". Hal ini disebabkan oleh tingkat kemiripan yang cukup tinggi antara gerakan isyarat "rumah" dan "delete". Secara keseluruhan, tingkat keberhasilan sistem dalam membentuk kalimat adalah 0.857 atau 85.7\%. Penggunaan library gTTS (Google Text-To-Speech) telah dapat mengkonversi kalimat yang dibentuk dengan baik. Hal ini juga ditunjukkan dengan klasifikasi gerakan isyarat "translate" yang berhasil pada setiap pengujian yang dilakukan. Adapun kalimat yang dibentuk dengan 3 kosakata memiliki performa yang cenderung lebih berat jika dibandingkan dengan 2 kosakata. Hal ini dapat dilihat pada rata - rata nilai FPS yang didapatkan.
 
-Berdasarkan keseluruhan pengujian yang dilakukan menunjukkan bahwa sistem memiliki performa yang baik dalam penerjemahan gerakan isyarat dalam jumlah yang relatif banyak dan secara \emph{realtime}.
+Berdasarkan keseluruhan pengujian yang dilakukan menunjukkan bahwa sistem memiliki performa yang baik dalam penerjemahan gerakan isyarat dalam jumlah yang relatif banyak dan secara \emph{realtime}. Penggunaan library gTTS juga telah berhasil dalam mengkonversi kalimat yang dibentuk oleh pengguna dengan akurasi hingga 100\%.
 
 \begin{figure}[ht]
     \centering

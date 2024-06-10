@@ -101,7 +101,7 @@ The model is trained with 12 epochs and a dataset partition of 70:30, with 70\% 
     \centering
     \begin{tabular}{lllll}
       \hline
-      \textbf{Model} & \textbf{\emph{Avg. Accuracy}} & \textbf{\emph{Avg. Precision}} & \textbf{\emph{Avg. Recall}} & \textbf{\emph{Avg. F1-Score}} \\
+      \textbf{Model} & \textbf{\emph{Accuracy}} & \textbf{\emph{Precision}} & \textbf{Recall} & \textbf{F1-Score} \\
       \hline
       Model 1 & 0.85 & 0.85 & 0.85 & 0.83 \\
       Model 2 & 0.93 & 0.95 & 0.94 & 0.94 \\
@@ -121,18 +121,18 @@ This test will observe the model's ability to adapt to changes in room light int
   \caption{Light Level Evaluation Results}
   \label{tb:lightevaluation}
   \centering
-  \begin{tabular}{llll}
+  \begin{tabular}{lllll}
     \hline
-    \textbf{Light} & \textbf{Accuracy} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+    \textbf{Light} & \textbf{Accuracy} & \textbf{Processing Time} & \textbf{Complete Time} & \textbf{FPS} \\
     \hline
-    35 lux & 0.89 & 0.0938 & 3.0335 \\
-    80 lux & 0.96 & 0.0918 & 2.9928 \\
-    125 lux & 1.00 & 0.0923 & 2.4777 \\
+    35 lux & 0.89 & 0.0938 & 3.0335   & 9.968\\
+    80 lux & 0.96 & 0.0918 & 2.9928   & 10.115\\
+    125 lux & 1.00 & 0.0923 & 2.4777  & 12.905\\
     \hline
   \end{tabular}
 \end{table}
 
-Based on Table \ref{tb:lightevaluation}, it can be seen that a reduction in light intensity in a room causes an increase in processing time and complete time. However, in terms of accuracy, the 125 lux light intensity has the best accuracy compared to other light intensities. This can be due to the camera's ability to capture the user's sign movements more clearly.
+Based on Table \ref{tb:lightevaluation}, it can be seen that a decrease in light intensity in a room causes an increase in \emph{processing time} and \emph{complete time}. However, when viewed in terms of accuracy, it can be seen that a light intensity of 125 lux has the best accuracy compared to other light intensities. The average FPS, \emph{processing time}, and \emph{complete time} indicate that the translation system has the best performance at a light intensity of 125 lux. This is because the increased light intensity allows the camera to capture the sign movements more clearly.
 
 \subsection{Distance Condition Testing}
 \label{sec:distanceanalysis}
@@ -143,18 +143,18 @@ This test will observe the model's ability to adapt to changes in the distance b
   \caption{Distance Evaluation Results}
   \label{tb:distanceevaluation}
   \centering
-  \begin{tabular}{llll}
+  \begin{tabular}{lllll}
     \hline
-    \textbf{Distance} & \textbf{Accuracy} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+    \textbf{Distance} & \textbf{Accuracy} & \textbf{Processing Time} & \textbf{Complete Time} & \textbf{FPS} \\
     \hline
-    180 cm & 0.89 & 0.1017 & 2.3660 \\
-    240 cm & 0.96 & 0.0994 & 2.5098 \\
-    300 cm & 1.00 & 0.0997 & 2.7918 \\
+    180 cm & 0.89 & 0.1017 & 2.3660 & 14.083\\
+    240 cm & 0.96 & 0.0994 & 2.5098 & 12.866\\
+    300 cm & 1.00 & 0.0997 & 2.7918 & 10.746\\
     \hline
   \end{tabular}
 \end{table}
 
-Based on Table \ref{tb:distanceevaluation}, it can be seen that increasing the distance results in better model classification accuracy. This is due to the camera clearly capturing the user's sign movements as the distance increases. However, increasing the distance results in an increase in complete time, while processing time tends to be fluctuating.
+Based on Table \ref{tb:distanceevaluation}, it can be seen that increasing the distance results in better model classification accuracy. This is due to the camera's ease in clearly capturing the sign movements performed by the user as the distance increases. However, the increase in distance results in an increase in \emph{complete time}. The \emph{processing time} tends to fluctuate. The FPS value tends to decrease, indicating that the system's workload becomes heavier as the distance increases.
 
 \subsection{Different Subject Testing}
 \label{sec:subjectanalysis}
@@ -169,9 +169,9 @@ This test is conducted to observe the model's ability to adapt to changes in sub
     \hline
     \textbf{Gender} & \textbf{Subject Image} \\
     \hline
-    Female & \includegraphics[scale=0.12]{gambar/bab4-rani.png} \\
+    Female & \includegraphics[scale=0.14]{gambar/bab4-rani.png} \\
     \hline
-    Male & \includegraphics[scale=0.12]{gambar/bab4-evan.png} \\
+    Male & \includegraphics[scale=0.14]{gambar/bab4-evan.png} \\
     \hline
   \end{tabular}
 \end{table}
@@ -180,17 +180,17 @@ This test is conducted to observe the model's ability to adapt to changes in sub
   \caption{Different Subject Evaluation Results}
   \label{tb:subjectevaluation}
   \centering
-  \begin{tabular}{llll}
+  \begin{tabular}{lllll}
     \hline
-    \textbf{Subject} & \textbf{Accuracy} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+    \textbf{Subject} & \textbf{Accuracy} & \textbf{Processing Time} & \textbf{Complete Time} & \textbf{FPS}\\
     \hline
-    Female & 0.93 & 0.0988 & 2.6636 \\
-    Male & 0.93 & 0.0973 & 2.8191 \\
+    Female & 0.93 & 0.0988 & 2.6636 & 12.026\\
+    Male & 0.93 & 0.0973 & 2.8191   & 11.378\\
     \hline
   \end{tabular}
 \end{table}
 
-Based on Table \ref{tb:subjectevaluation}, it can be seen that the model can classify different subjects. Data normalization has resulted in a scale-invariant and position-invariant model. The model classification accuracy shows a very good value of 0.93 or 93\%. The average processing time and complete time also show values that are not much different from the previous tests, with the average processing time ranging around 0.098 and the complete time around 2.74.
+Based on Table \ref{tb:subjectevaluation}, it can be seen that the model can perform classification on different subjects. Data normalization has resulted in a model that is \emph{scale invariant} and \emph{position invariant}. The classification accuracy of the model shows a very good value, which is 0.93 or 93\%. The \emph{average processing time} and \emph{complete time} also show values not far from the tests previously conducted by the author, with the \emph{average processing time} around 0.098 and the \emph{complete time} around 2.74. The average FPS obtained is 11.702. This indicates that the system has good performance in classifying sign movements on different subjects.
 
 \subsection{Sentence Formation and Voice Conversion Testing}
 \label{sec:sentenceanalysis}
@@ -220,19 +220,19 @@ This test is conducted to understand how the translation system is used to form 
   \caption{Vocabulary Combination Evaluation Results}
   \label{tb:combinationevaluation}
   \centering
-  \begin{tabular}{llll}
+  \begin{tabular}{lllll}
     \hline
-    \textbf{Combinations} & \textbf{Accuracy} & \emph{\textbf{Avg. Processing Time}} & \emph{\textbf{Avg. Complete Time}} \\
+    \textbf{Words} & \textbf{Accuracy} & \textbf{Processing Time} & \emph{\textbf{Complete Time}} & \textbf{FPS}\\
     \hline
-    2  & 1.00 & 0.0993 & 2.8303 \\
-    3  & 0.93 & 0.0981 & 2.0513 \\
+    2  Words  & 1.00 & 0.0993 & 2.8303 & 13.2573\\
+    3  Words  & 0.93 & 0.0981 & 2.0513 & 10.1184\\
     \hline
   \end{tabular}
 \end{table}
 
-As seen in Table \ref{tb:combinationevaluation}, the model has successfully formed sentences by combining them sequentially and continuously. This is shown by the accuracy of sentences formed from the combination of 2 vocabularies being 1.00 and the combination of 3 vocabularies being 0.93. The average processing time and average complete time values did not change significantly compared to the tests carried out continuously. In forming the sentence "Ini rumah saya", there was a classification error in the sign movement "home", which was classified as "delete." This is due to the high similarity between the sign movements "rumah" and "delete." Overall, the system's success rate in forming sentences is 0.857 or 85.7\%. The voice conversion process is carried out using the Google Text-to-Speech API, which has a good performance in converting sentences into voice. This also shown by the sign movement "translate" being classified as correctly within every sentence formation.
+It can be seen in Table \ref{tb:combinationevaluation} that the model has successfully formed sentences by combining signs sequentially and continuously. This is demonstrated by the accuracy of sentences formed from the combination of 2 words having a value of 1.00 and the combination of 3 words having a value of 0.93. The values of \emph{average processing time} and \emph{average complete time} did not experience significant changes with continuous testing. In the formation of the sentence "Ini rumah saya" ("This is my house"), there was a classification error where the sign for "rumah" ("house") was classified as "delete." This was due to the high similarity between the signs for "rumah" and "delete." Overall, the system's success rate in forming sentences is 0.857 or 85.7\%. The use of the gTTS (Google Text-To-Speech) library has been able to convert the formed sentences well. This is also shown by the successful classification of the "translate" sign in every test conducted. Sentences formed with 3 words tend to have heavier performance compared to 2 words, as indicated by the average FPS values obtained.
 
-Overall, the tests show that the system has good performance in translating sign movements in relatively large numbers and in real-time.
+Overall, the tests conducted show that the system has good performance in translating a relatively large number of sign movements in \emph{real-time}. The use of the gTTS library has also successfully converted sentences formed by users with an accuracy of up to 100\%.
 
 \begin{figure}[ht]
     \centering
